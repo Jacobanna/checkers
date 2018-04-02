@@ -9,4 +9,10 @@ public class None extends Figure{
     public String toString(){
         return "empty";
     }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        None n = (None) o;
+//        return ;
+//    }
 }

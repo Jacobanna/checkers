@@ -9,4 +9,11 @@ public class Pawn extends Figure{
     public String toString(){
         return getColor() + " pawn";
     }
+
+//    @Override
+//    public boolean equals(Object o) {
+//        Pawn p = (Pawn) o;
+//        return ;
+//    }
+
 }

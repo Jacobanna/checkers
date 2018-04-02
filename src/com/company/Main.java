@@ -7,7 +7,7 @@ public class Main {
         board.initialBoard();
         System.out.println(board);
 
-        board.move(2,1,3,2);
+        board.move(5, 2,4,3);
         System.out.println(board);
     }
 }

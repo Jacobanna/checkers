@@ -140,16 +140,57 @@ public class Board {
     }
 
     private boolean isValidMove(int x1, int y1, int x2, int y2) {
-        Figure f = getFigure(x1, y1);
+        Figure f1 = getFigure(x1, y1);
+        Figure f2 = getFigure(x2,y2);
         Figure empty = new None();
-        if (f == empty){
+
+        //Is x1,y1 NOT empty
+        if (f1.equals(empty)){
+            System.out.println("//Is x1,y1 NOT empty");
             return false;
         }
-        if (x1<0 || y1<0 || x2>7 || y2>7){
+
+        //Is x2,y2 empty
+        //TU PRZECIWNIE DO EQUALS
+        if(f2.equals(empty)){
+            System.out.println("//Is x2,y2 empty");
             return false;
         }
-        if(x1>x2 || (x1+1)>x2){
+
+        //Is x1,y1 on board
+        if (x1<0 || y1<0 || x1>7 || y1>7){
+            System.out.println("//Is x1,y1 on board");
             return false;
+        }
+
+        //Is x2,y2 on board
+        if (x2<0 || y2<0 || x2>7 || y2>7){
+            System.out.println("//Is x1,y1 on board");
+            return false;
+        }
+
+        //Validation for BLACK figures
+        if(f1.getEnumColor() == ColorCheck.BLACK){
+            if((x1+1)!=x2){
+                System.out.println("//BLACK x1 x2 doesn't match");
+                return false;
+            }
+            if((y1-1)!=y2 && (y1+1)!=y2){
+                System.out.println("//BLACK y1 y2 doesn't match");
+                return false;
+            }
+        }
+
+        //Validation for RED figures
+        if(f1.getEnumColor() == ColorCheck.RED){
+            if((x1-1)!=x2){
+                System.out.println("//RED x1 x2 doesn't match");
+                return false;
+            }
+            if((y1-1)!=y2 && (y1+1)!=y2){
+                System.out.println("//RED y1 y2 doesn't match");
+                return false;
+            }
         }
 
         return true;
