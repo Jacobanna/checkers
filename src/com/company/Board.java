@@ -87,35 +87,35 @@ public class Board {
 
         boardRows = new ArrayList<>();
 
-        for(int i=0; i<8; i++){
+        for (int i = 0; i < 8; i++) {
             ArrayList<Figure> figureList = new ArrayList<>();
-            for(int k=0; k<8; k++){
+            for (int k = 0; k < 8; k++) {
                 figureList.add(empty);
             }
             boardRows.add(new BoardRow(figureList));
         }
 
         Board initialBoard = new Board(boardRows);
-        for(int i=0; i<8; i++){
-            if(i == 0 || i == 2){
-                for(int j=0; j<8; j++)
-                    if(j%2 == 1){
-                        initialBoard.setFigure(i,j,blackPawn);
+        for (int i = 0; i < 8; i++) {
+            if (i == 0 || i == 2) {
+                for (int j = 0; j < 8; j++)
+                    if (j % 2 == 1) {
+                        initialBoard.setFigure(i, j, blackPawn);
                     }
             } else if (i == 1) {
-                for(int j=0; j<8; j++)
-                    if(j%2 == 0){
-                        initialBoard.setFigure(i,j,blackPawn);
+                for (int j = 0; j < 8; j++)
+                    if (j % 2 == 0) {
+                        initialBoard.setFigure(i, j, blackPawn);
                     }
-            } else if (i == 5 || i == 7){
-                for(int j=0; j<8; j++)
-                    if(j%2 == 0){
-                        initialBoard.setFigure(i,j,redPawn);
+            } else if (i == 5 || i == 7) {
+                for (int j = 0; j < 8; j++)
+                    if (j % 2 == 0) {
+                        initialBoard.setFigure(i, j, redPawn);
                     }
             } else if (i == 6) {
-                for(int j=0; j<8; j++)
-                    if(j%2 == 1){
-                        initialBoard.setFigure(i,j,redPawn);
+                for (int j = 0; j < 8; j++)
+                    if (j % 2 == 1) {
+                        initialBoard.setFigure(i, j, redPawn);
                     }
             } else {
 //                Nothing happens for i==3 and i==4
@@ -123,75 +123,5 @@ public class Board {
         }
 
 
-
-
     }
-
-    public boolean move(int x1, int y1, int x2, int y2) {
-        if (isValidMove(x1, y1, x2, y2)) {
-            Figure f = getFigure(x1, y1);
-            setFigure(x2, y2, f);
-            setFigure(x1, y1, new None());
-
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private boolean isValidMove(int x1, int y1, int x2, int y2) {
-        Figure f1 = getFigure(x1, y1);
-        Figure f2 = getFigure(x2,y2);
-
-        //Is x1,y1 NOT empty
-        if (f1 instanceof None){
-            System.out.println("//Is x1,y1 NOT empty");
-            return false;
-        }
-
-        //Is x2,y2 empty
-        if(!(f2 instanceof None)){
-            System.out.println("//Is x2,y2 empty");
-            return false;
-        }
-
-        //Is x1,y1 on board
-        if (x1<0 || y1<0 || x1>7 || y1>7){
-            System.out.println("//Is x1,y1 on board");
-            return false;
-        }
-
-        //Is x2,y2 on board
-        if (x2<0 || y2<0 || x2>7 || y2>7){
-            System.out.println("//Is x1,y1 on board");
-            return false;
-        }
-
-        //Validation for BLACK figures
-        if(f1.getEnumColor() == ColorCheck.BLACK){
-            if((x1+1)!=x2){
-                System.out.println("//BLACK x1 x2 doesn't match");
-                return false;
-            }
-            if((y1-1)!=y2 && (y1+1)!=y2){
-                System.out.println("//BLACK y1 y2 doesn't match");
-                return false;
-            }
-        }
-
-        //Validation for RED figures
-        if(f1.getEnumColor() == ColorCheck.RED){
-            if((x1-1)!=x2){
-                System.out.println("//RED x1 x2 doesn't match");
-                return false;
-            }
-            if((y1-1)!=y2 && (y1+1)!=y2){
-                System.out.println("//RED y1 y2 doesn't match");
-                return false;
-            }
-        }
-
-        return true;
-    }
-
 }
