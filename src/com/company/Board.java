@@ -142,17 +142,15 @@ public class Board {
     private boolean isValidMove(int x1, int y1, int x2, int y2) {
         Figure f1 = getFigure(x1, y1);
         Figure f2 = getFigure(x2,y2);
-        Figure empty = new None();
 
         //Is x1,y1 NOT empty
-        if (f1.equals(empty)){
+        if (f1 instanceof None){
             System.out.println("//Is x1,y1 NOT empty");
             return false;
         }
 
         //Is x2,y2 empty
-        //TU PRZECIWNIE DO EQUALS
-        if(f2.equals(empty)){
+        if(!(f2 instanceof None)){
             System.out.println("//Is x2,y2 empty");
             return false;
         }

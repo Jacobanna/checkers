@@ -2,7 +2,7 @@ package com.company;
 
 public class Figure{
     private String color;
-    private Enum enumColor;
+    private ColorCheck enumColor;
 
     public Figure(String color) {
         if((color != null) && (color != "red") && (color != "black")){
