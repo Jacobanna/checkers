@@ -1,13 +1,13 @@
 package com.company;
 
 public class Queen extends Figure{
-    public Queen(String color) {
+    public Queen(Color color) {
         super(color);
     }
 
     @Override
     public String toString(){
-        return getColor() + " queen";
+        return getColor() + " QUEEN";
     }
 
 //    @Override

@@ -1,29 +1,27 @@
 package com.company;
 
-public class Figure{
-    private String color;
-    private ColorCheck enumColor;
+import static com.company.Color.BLACK;
+import static com.company.Color.RED;
 
-    public Figure(String color) {
-        if((color != null) && (color != "red") && (color != "black")){
+public class Figure{
+    private Color color;
+
+    public Figure(Color color) {
+        if((color != null) && (color != RED) && (color != BLACK)){
             throw new IllegalArgumentException("If figure exists color must be red or black.");
         }
 
-        if(color == "red"){
-            enumColor = ColorCheck.RED;
+        if(color == RED){
+            color = color.RED;
         }
 
-        if(color == "black"){
-            enumColor = ColorCheck.BLACK;
+        if(color == BLACK){
+            color = color.BLACK;
         }
         this.color = color;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
-    }
-
-    public Enum getEnumColor(){
-        return enumColor;
     }
 }

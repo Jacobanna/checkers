@@ -1,5 +1,8 @@
 package com.company;
 
+import static com.company.Color.BLACK;
+import static com.company.Color.RED;
+
 public class MoveValidator {
     Move move;
     Board board;
@@ -25,7 +28,6 @@ public class MoveValidator {
 
         //Is x1,y1 on board
         if (move.getX1() < 0 || move.getY1() < 0 || move.getX1() > 7 || move.getY1() > 7) {
-            System.out.println("//Is x1,y1 on board");
             return false;
         }
 
@@ -35,7 +37,7 @@ public class MoveValidator {
         }
 
         //Validation for BLACK figures
-        if (f1.getEnumColor() == ColorCheck.BLACK) {
+        if (f1.getColor() == BLACK) {
             if ((move.getX1() + 1) != move.getX2()) {
                 return false;
             }
@@ -45,7 +47,7 @@ public class MoveValidator {
         }
 
         //Validation for RED figures
-        if (f1.getEnumColor() == ColorCheck.RED) {
+        if (f1.getColor() == RED) {
             if ((move.getX1() - 1) != move.getX2()) {
                 return false;
             }

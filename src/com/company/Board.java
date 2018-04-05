@@ -1,6 +1,8 @@
 package com.company;
 
 import java.util.ArrayList;
+import static com.company.Color.BLACK;
+import static com.company.Color.RED;
 
 public class Board {
     private ArrayList<BoardRow> boardRows;
@@ -69,15 +71,15 @@ public class Board {
 
                 Figure tempFigure = getFigure(i - 1, j - 1);
                 String temp = tempFigure.toString();
-                if (temp.equals("empty")) {
+                if (temp.equals("EMPTY")) {
                     boardVisualisation += "   ";
-                } else if (temp.equals("red pawn")) {
+                } else if (temp.equals("RED PAWN")) {
                     boardVisualisation += "RP ";
-                } else if (temp.equals("black pawn")) {
+                } else if (temp.equals("BLACK PAWN")) {
                     boardVisualisation += "BP ";
-                } else if (temp.equals("red queen")) {
+                } else if (temp.equals("RED QUEEN")) {
                     boardVisualisation += "RQ ";
-                } else if (temp.equals("black queen")) {
+                } else if (temp.equals("BLACK QUEEN")) {
                     boardVisualisation += "BQ ";
                 } else {
                     System.out.println("Error printing board.");
@@ -94,8 +96,8 @@ public class Board {
 
     public void initialBoard() {
         Figure empty = new None();
-        Figure redPawn = new Pawn("red");
-        Figure blackPawn = new Pawn("black");
+        Figure redPawn = new Pawn(RED);
+        Figure blackPawn = new Pawn(BLACK);
 
         boardRows = new ArrayList<>();
 

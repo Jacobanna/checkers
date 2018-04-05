@@ -1,6 +1,6 @@
 package com.company;
 
-public enum ColorCheck {
+public enum Color {
     RED,
     BLACK
 }

@@ -7,7 +7,7 @@ public class None extends Figure{
 
     @Override
     public String toString(){
-        return "empty";
+        return "EMPTY";
     }
 
 //    @Override

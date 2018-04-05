@@ -1,13 +1,13 @@
 package com.company;
 
 public class Pawn extends Figure{
-    public Pawn(String color) {
+    public Pawn(Color color) {
         super(color);
     }
 
     @Override
     public String toString(){
-        return getColor() + " pawn";
+        return getColor() + " PAWN";
     }
 
 //    @Override
