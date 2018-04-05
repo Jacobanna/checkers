@@ -3,6 +3,7 @@ package com.company;
 import java.util.Scanner;
 
 public class UserDialogs {
+
     public static Move getMove(Board board) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
