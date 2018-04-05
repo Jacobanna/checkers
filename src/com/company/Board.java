@@ -40,6 +40,18 @@ public class Board {
         figures.set(col, figure);
     }
 
+    public boolean move(Move move, Board board) {
+        MoveValidator moveValidator = new MoveValidator(move,board);
+        if (moveValidator.isValidMove()) {
+            Figure f = getFigure(move.getX1(), move.getY1());
+            setFigure(move.getX2(), move.getY2(), f);
+            setFigure(move.getX1(), move.getY1(), new None());
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @Override
     public String toString() {
         String boardVisualisation = "";

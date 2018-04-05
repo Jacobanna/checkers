@@ -8,8 +8,7 @@ public class Game {
         while (true) {
             System.out.println(board);
             Move move = UserDialogs.getMove(board);
-            MoveValidator moveValidator = new MoveValidator(move, board);
-            moveValidator.move();
+            board.move(move,board);
         }
     }
 }

@@ -9,18 +9,6 @@ public class MoveValidator {
         this.board = board;
     }
 
-    public boolean move() {
-        MoveValidator moveValidator = new MoveValidator(move, board);
-        if (moveValidator.isValidMove()) {
-            Figure f = board.getFigure(move.getX1(), move.getY1());
-            board.setFigure(move.getX2(), move.getY2(), f);
-            board.setFigure(move.getX1(), move.getY1(), new None());
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public boolean isValidMove() {
         Figure f1 = board.getFigure(move.getX1(), move.getY1());
         Figure f2 = board.getFigure(move.getX2(), move.getY2());
