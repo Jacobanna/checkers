@@ -12,6 +12,10 @@ public class MoveValidator {
         this.board = board;
     }
 
+    public Color moveColor(){
+        return board.getFigure(move.getX1(),move.getY1()).getColor();
+    }
+
     public boolean isValidMove() {
         Figure f1 = board.getFigure(move.getX1(), move.getY1());
         Figure f2 = board.getFigure(move.getX2(), move.getY2());
