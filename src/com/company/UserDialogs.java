@@ -1,5 +1,6 @@
 package com.company;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 import static com.company.Color.BLACK;
@@ -17,7 +18,7 @@ public class UserDialogs {
                     System.out.println("RED PLAYER - enter next move in format A7B6:");
                     String userMove = scanner.nextLine().toUpperCase();
                     //TODO This is not error proof IF - using String with length 4 but with inccorect (ie 1111, aaa1,
-                    //TODO bb1a) values will stop the program.
+                    //TODO bb1a) values will stop the program.4
                     if (userMove.length() == 4) {
                         int x1 = 8 - Integer.parseInt(userMove.substring(1, 2));
                         int y1 = userMove.charAt(0) - 65;
@@ -26,9 +27,9 @@ public class UserDialogs {
                         Move move = new Move(x1, y1, x2, y2);
                         MoveValidator moveValidator = new MoveValidator(move, board);
 
-                        if (!(moveValidator.isValidMove()) || moveValidator.moveColor() == BLACK) {
-                            System.out.println("Wrong move!");
-                            continue;
+                        if ((!(moveValidator.isValidMove()) && !(moveValidator.isPossibleMoveOver())) || moveValidator.moveColor() == BLACK) {
+                                System.out.println("Wrong move HERE r!");
+                                continue;
                         } else {
                             whoseMove = BLACK;
                             return move;
@@ -51,8 +52,8 @@ public class UserDialogs {
                         Move move = new Move(x1, y1, x2, y2);
                         MoveValidator moveValidator = new MoveValidator(move, board);
 
-                        if (!(moveValidator.isValidMove()) || moveValidator.moveColor() == RED) {
-                            System.out.println("Wrong move!");
+                        if ((!(moveValidator.isValidMove()) && !(moveValidator.isPossibleMoveOver())) || moveValidator.moveColor() == RED) {
+                            System.out.println("Wrong move HERE b!");
                             continue;
                         } else {
                             whoseMove = RED;

@@ -9,10 +9,4 @@ public class Queen extends Figure{
     public String toString(){
         return getColor() + " QUEEN";
     }
-
-//    @Override
-//    public boolean equals(Object o) {
-//        Queen q = (Queen) o;
-//        return ;
-//    }
 }

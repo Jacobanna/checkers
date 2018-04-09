@@ -44,7 +44,15 @@ public class Board {
 
     public boolean move(Move move, Board board) {
         MoveValidator moveValidator = new MoveValidator(move,board);
-        if (moveValidator.isValidMove()) {
+        if (moveValidator.isPossibleMoveOver()) {
+            Figure f = getFigure(move.getX1(), move.getY1());
+            int x3 = (move.getX1()+move.getX2())/2;
+            int y3 = (move.getY1()+move.getY2())/2;
+            setFigure(move.getX2(), move.getY2(), f);
+            setFigure(move.getX1(), move.getY1(), new None());
+            setFigure(x3,y3,new None());
+            return true;
+        } else if(moveValidator.isValidMove()) {
             Figure f = getFigure(move.getX1(), move.getY1());
             setFigure(move.getX2(), move.getY2(), f);
             setFigure(move.getX1(), move.getY1(), new None());
