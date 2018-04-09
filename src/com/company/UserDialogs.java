@@ -1,6 +1,5 @@
 package com.company;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 import static com.company.Color.BLACK;
@@ -28,14 +27,14 @@ public class UserDialogs {
                         MoveValidator moveValidator = new MoveValidator(move, board);
 
                         if ((!(moveValidator.isValidMove()) && !(moveValidator.isPossibleMoveOver())) || moveValidator.moveColor() == BLACK) {
-                                System.out.println("Wrong move HERE r!");
+                                System.out.println("Wrong move!");
                                 continue;
                         } else {
                             whoseMove = BLACK;
                             return move;
                         }
                     } else {
-                        System.out.println("Wrong move!");
+                        System.out.println("Wrong moveAAA!");
                         continue;
                     }
                 }
@@ -53,7 +52,7 @@ public class UserDialogs {
                         MoveValidator moveValidator = new MoveValidator(move, board);
 
                         if ((!(moveValidator.isValidMove()) && !(moveValidator.isPossibleMoveOver())) || moveValidator.moveColor() == RED) {
-                            System.out.println("Wrong move HERE b!");
+                            System.out.println("Wrong move!");
                             continue;
                         } else {
                             whoseMove = RED;
